@@ -1,0 +1,102 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox  fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
+
+        <GridPane >
+                <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+                <Label text="Хост:"
+                       GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                <TextField
+                        fx:id="tfHost"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Используется Хост:"
+                       GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+                <Label fx:id="labelHost" text="Нет хоста"
+                       GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Button fx:id="btnHost" onAction="#saveSettingsHOST" text="Сохранить Хост"
+                        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label fx:id="label_no_change"
+                       text="Не менять !!!(Только тем кто меняет БД):"
+                       GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+
+                <TextField
+                        fx:id="tfPHP"
+                        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+
+                <Label fx:id="labelPHP" text="Нет php"
+                       GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+
+                <Button onAction="#saveSettingsPHP" text="Сохранить PHP"
+                        GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                <Label
+                        text="Индикатор:"
+                        GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+
+                <ImageView
+                        fx:id="indicatorImage"
+                        fitHeight="100"
+                        fitWidth="100"
+                        GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+                <Label
+                        text="Статус сервера:"
+                        GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+
+                <Label
+                        fx:id="labelStatus" text="Нажмите 'включить' чтобы узнать"
+                        GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+
+
+                <Button fx:id="btnOnIndicator" onAction="#onIndicator" text="Включить:"
+                        minHeight="50"
+                        maxHeight="50"
+                        GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+
+                <Button fx:id="btnOffIndicator" onAction="#offIndicator" text="Выключить"
+                        minHeight="50"
+                        maxHeight="50"
+                        GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+
+             <!--   <Label
+                        fx:id="labelRequestSizeSuccess" text="Запросов успешно за сеанс: 0"
+                        GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+
+                <Label
+                        fx:id="labelRequestSizeAll" text="Запросов всего за сеанс: 0"
+                        GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+
+                <Label
+                        fx:id="labelTimer"
+                        GridPane.columnIndex="0" GridPane.rowIndex="11"/>-->
+
+        </GridPane>
+
+        <GridPane>
+                <padding><Insets left="15"/></padding>
+
+                <Label
+                        fx:id="labelRequestSizeSuccess" text="Запросов успешно за сеанс: 0"
+                        GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+
+                <Label
+                        fx:id="labelRequestSizeAll" text="Запросов всего за сеанс: 0"
+                        GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+
+                <Label
+                        fx:id="labelTimer"
+                        GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+        </GridPane>
+
+</VBox>

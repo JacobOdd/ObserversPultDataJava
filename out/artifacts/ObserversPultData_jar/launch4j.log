@@ -1,0 +1,11 @@
+
+
+Version:	3.14
+CmdLine:	C:\Users\iDeath\IdeaProjects\ObserversPultData\out\artifacts\ObserversPultData_jar\Наблюдатель.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\iDeath\IdeaProjects\ObserversPultData\out\artifacts\ObserversPultData_jar\.
+Java min ver:	
+Java max ver:	
+Bundled JRE(s):	C:\Program Files (x86)\Java\jre1.8.0_181\lib
+Check launcher:	C:\Program Files (x86)\Java\jre1.8.0_181\lib\bin\javaw.exe (not found)
+Error msg:	This application requires a Java Runtime Environment.

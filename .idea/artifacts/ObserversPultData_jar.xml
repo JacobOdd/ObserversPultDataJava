@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ObserversPultData:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ObserversPultData_jar</output-path>
+    <root id="archive" name="ObserversPultData.jar">
+      <element id="module-output" name="ObserversPultData" />
+      <element id="library" level="application" name="jdk1.8" />
+    </root>
+  </artifact>
+</component>
