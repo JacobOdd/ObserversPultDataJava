@@ -96,6 +96,7 @@ public class Controller implements Initializable {
     private final String TXT_ERROR_NOT_WORKING_REFRESH_BUTTON = "Error: Doesn't work (click 'enable')";
     private final String TXT_NETWORK_ERROR = "Error: Network Error";
     private final String TXT_ERROR_NOT_RIGHT_NAME_FILE = "Error: No such file:";
+    private final String TXT_ERROR_TURN_ON_APACHE = "Error: TURN ON APACHE";
 
     private boolean isIndicator = false;
 
@@ -188,8 +189,8 @@ public class Controller implements Initializable {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-                conn.setReadTimeout(30000);
-                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(35000);
+                conn.setConnectTimeout(35000);
                 conn.setRequestMethod("POST");
 
                 OutputStreamWriter writer = new OutputStreamWriter(
@@ -249,8 +250,8 @@ public class Controller implements Initializable {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-                conn.setReadTimeout(30000);
-                conn.setConnectTimeout(30000);
+                conn.setReadTimeout(35000);
+                conn.setConnectTimeout(35000);
                 conn.setRequestMethod("POST");
 
                 OutputStreamWriter writer = new OutputStreamWriter(
@@ -423,9 +424,17 @@ public class Controller implements Initializable {
     }
 
     private void onRequestSuccess() {
+        sizeRequestSuccess++;
         Platform.runLater(()->{
-            sizeRequestSuccess++;
             labelRequestSizeSuccess.setText(TXT_REQUEST_SUCCESS + " " + sizeRequestSuccess);
+        });
+        
+        if(!isIndicator) {
+            onRequestError(TXT_ERROR_TURN_ON_APACHE);
+            return;
+        }
+
+        Platform.runLater(()->{
             labelStatus.setText(TXT_WORKING);
             setIsIndicator(true,true);
         });
