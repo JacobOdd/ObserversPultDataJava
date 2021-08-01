@@ -91,7 +91,7 @@ public class Controller implements Initializable {
     private final String TXT_ERROR_QUOTA_EXPIRED = "Error: Quota expired SOS";
     private final String TXT_ERROR_WEAK_NETWORK = "Error: Weak internet connection or not at all";
     private final String TXT_ERROR_NOT_RIGHT_URL_HOST = "Error: Wrong URL-Host SOS";
-    private final String TXT_ERROR_APACHE = "Error: Apache server is not responding or weak internet connection SOS";
+    private final String TXT_ERROR_APACHE = "Error: Apache server is not responding or weak internet connection or either the quota has ended or there are too many active alarms and not everything has been added SOS";
     private final String TXT_ERROR_NOT_WORKING_QUOTA_OR_SERVER = "Error: Doesn't work (quota expired or click 'enable')";
     private final String TXT_ERROR_NOT_WORKING_REFRESH_BUTTON = "Error: Doesn't work (click 'enable')";
     private final String TXT_NETWORK_ERROR = "Error: Network Error";
@@ -188,8 +188,8 @@ public class Controller implements Initializable {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-                conn.setReadTimeout(19000);
-                conn.setConnectTimeout(19000);
+                conn.setReadTimeout(30000);
+                conn.setConnectTimeout(30000);
                 conn.setRequestMethod("POST");
 
                 OutputStreamWriter writer = new OutputStreamWriter(
@@ -249,8 +249,8 @@ public class Controller implements Initializable {
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setDoInput(true);
                 conn.setDoOutput(true);
-                conn.setReadTimeout(10000);
-                conn.setConnectTimeout(10000);
+                conn.setReadTimeout(30000);
+                conn.setConnectTimeout(30000);
                 conn.setRequestMethod("POST");
 
                 OutputStreamWriter writer = new OutputStreamWriter(
@@ -397,8 +397,8 @@ public class Controller implements Initializable {
         GridPane.setMargin(label_no_change,new Insets(0,0,0,0));
         GridPane.setMargin(labelHost,new Insets(0,0,0,5));
         GridPane.setMargin(btnHost,new Insets(0,0,10,0));
+        labelStatus.setWrapText(true);
         labelTimer.setFont(Font.getDefault());
-
         labelTimer.setText(TXT_SECONDS_NEXT_REQUEST + " " + RUN_DB_EXECUTOR_INTEGER_PERIOD_REQUEST);
         labelHost.setMaxWidth(200);
         labelPHP.setMaxWidth(200);
